@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 16.0f;
     public float groundCheckRadius;
     private bool canJump;
+    
+
+    
 
     
     private bool isTouchingWall;
@@ -31,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public float variableJumpHeightMultiplier = 0.5f;
     public float wallHopForce;
     public float wallJumpForce;
+
+    
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
@@ -62,11 +67,14 @@ public class PlayerController : MonoBehaviour
         UpdateAnimations();
         CheckIfCanJump();
         CheckIfWallSliding();
+        
+       
     }
     private void FixedUpdate()
     {
         ApplyMovement();
         CheckSurroundings();
+        
     }
 
     private void CheckIfWallSliding()
@@ -108,16 +116,16 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckMovementDirection()
     {
-        if(isFacingRight && movementInputDirection < 0)
+        if (isFacingRight && movementInputDirection < 0  )
         {
             Flip();
         }
-        else if(!isFacingRight && movementInputDirection > 0)
+        else if(!isFacingRight && movementInputDirection > 0 )
         {
             Flip();
         }
 
-        if(rb.velocity.x != 0)
+        if(Mathf.Abs(rb.velocity.x) >=0.01)
         {
             isWalking = true;
         }
@@ -146,7 +154,15 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
+
+        
     }
+
+    public int GetFacingDirection()
+    {
+        return facingDirection;
+    }
+   
 
     private void Jump()
     {
@@ -204,6 +220,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    
 
     private void Flip()
     {
