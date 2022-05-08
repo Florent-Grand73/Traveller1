@@ -9,6 +9,9 @@ public class CombatDummyController : MonoBehaviour
     [SerializeField]
     private bool applyKnockback;
 
+    [SerializeField]
+    private GameObject hitParticles;
+
     private float currentHealth, knockbackStart;
     private int playerFacingDirection;
     private bool playerOnLeft, knockback;
@@ -46,11 +49,12 @@ public class CombatDummyController : MonoBehaviour
 
     }
 
-    private void Damage(float amount)
+    public void Damage(float[] attackDetails)
     {
-        currentHealth -= amount;
+        currentHealth -= attackDetails[0];
         playerFacingDirection = pc.GetFacingDirection();
 
+        Instantiate(hitParticles, aliveGO.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
         if(playerFacingDirection == 1)
         {
             playerOnLeft = true;
