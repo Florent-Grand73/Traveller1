@@ -19,9 +19,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 16.0f;
     public float groundCheckRadius;
     private bool canJump;
-    
 
-    
+
+    private bool knockback;
+    private float knockbackStartTime;
+    [SerializeField]
+    private float knockbackDuration;
 
     
     private bool isTouchingWall;
@@ -39,7 +42,9 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
-    
+
+    [SerializeField]
+    private Vector2 knockbackSpeed;
 
     public int amountOfJumps = 1;
 
@@ -67,6 +72,7 @@ public class PlayerController : MonoBehaviour
         UpdateAnimations();
         CheckIfCanJump();
         CheckIfWallSliding();
+        CheckKnockback();
         
        
     }
@@ -87,6 +93,24 @@ public class PlayerController : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    
+
+    public void Knockback(int direction)
+    {
+        knockback = true;
+        knockbackStartTime = Time.time;
+        rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
+    }
+    private void CheckKnockback()
+    {
+        if(Time.time >= knockbackStartTime + knockbackDuration && knockback)
+        {
+            knockback = false;
+            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        }
+       
     }
 
     private void CheckSurroundings()
@@ -191,7 +215,7 @@ public class PlayerController : MonoBehaviour
     }
     private void ApplyMovement()
     {
-        if (isGrounded)
+        if (isGrounded && !knockback)
         {
             rb.velocity = new Vector2(moveSpeed * movementInputDirection, rb.velocity.y);
         }
@@ -225,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if (!isWallSliding)
+        if (!isWallSliding && !knockback)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
