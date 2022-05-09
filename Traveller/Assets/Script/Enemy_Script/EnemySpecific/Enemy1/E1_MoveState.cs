@@ -36,7 +36,12 @@ public class E1_MoveState : MoveState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        if (isDetectingWall || !isDetectingLedge)
+
+        if (isPlayerInMinAgroRange)
+        {
+            stateMachine.ChangeState(enemy.playerDetectedState);
+        }
+        else if (isDetectingWall || !isDetectingLedge)
         {
             //add trans to idle
             enemy.idleState.SetFlipAfterIdle(true);

@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E1_IdleState : IdleState
+public class E1_ChargeState : ChargeState
 {
+
     private Enemy1 enemy;
-    public E1_IdleState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState stateData ,Enemy1 enemy) : base(etity, stateMachine, animBoolName, stateData)
+    public E1_ChargeState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData, Enemy1 enemy) : base(etity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
+
+    }
+
+    public override void DoCheck()
+    {
+        base.DoCheck();
     }
 
     public override void Enter()
@@ -23,13 +30,9 @@ public class E1_IdleState : IdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isPlayerInMinAgroRange)
+        if (isChargeTimeOver)
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
-        }
-        else if (isIdleTimeOver)
-        {
-            stateMachine.ChangeState(enemy.moveState);
         }
     }
 
@@ -38,5 +41,3 @@ public class E1_IdleState : IdleState
         base.PhysicsUpdate();
     }
 }
-    
-
