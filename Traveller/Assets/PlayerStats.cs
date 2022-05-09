@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
 
     private float currentHealth;
 
-    private GameManager GM;
+   // private GameManager GM;
 
     private void Start()
     {
