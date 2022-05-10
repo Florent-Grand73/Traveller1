@@ -17,6 +17,9 @@ public class PlayerCombarControl : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsDamageable;
 
+    [SerializeField]
+    private float stunDamageAmount = 1f;
+
     private float lastInputTime = Mathf.NegativeInfinity;
 
     private AttackDetails attackDetails;
@@ -78,6 +81,7 @@ public class PlayerCombarControl : MonoBehaviour
 
         attackDetails.damageAmount = attack1Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach(Collider2D collider in detectedObjects)
         {
