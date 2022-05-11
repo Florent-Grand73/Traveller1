@@ -218,6 +218,7 @@ Transform:
   - {fileID: 1842863996}
   - {fileID: 1608695984}
   - {fileID: 1946374928}
+  - {fileID: 272059508}
   m_Father: {fileID: 2127925143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -439,7 +440,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 2050127847, guid: 4066f21a265d7934597bb67346e66ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -459,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 192963660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.72, y: 3.4, z: 0}
-  m_LocalScale: {x: 1.9444078, y: 2.089102, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -499,6 +500,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1762920447}
+--- !u!1 &272059507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272059508}
+  m_Layer: 9
+  m_Name: RangedAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272059508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272059507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138667910}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2041,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 3.1796536, y: 1}
+    m_SensorSize: {x: 3.1805055, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2462,7 +2494,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -1478871884, guid: 4066f21a265d7934597bb67346e66ecb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2481,8 +2513,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762920444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.54, y: -1.84, z: 0}
-  m_LocalScale: {x: 1.9444078, y: 1.9082434, z: 1}
+  m_LocalPosition: {x: -16.54, y: -1.65, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2728,7 +2760,10 @@ MonoBehaviour:
   lookForPlayerStateData: {fileID: 11400000, guid: afe8deee627342e4b97fd8018bbc08da, type: 2}
   stunStateData: {fileID: 11400000, guid: 3a076e2b56837804ebe21248f812f694, type: 2}
   deadStateData: {fileID: 11400000, guid: 2189c0e9ebfb7e545a23fd6acddab55f, type: 2}
+  dodgeStateData: {fileID: 11400000, guid: 5ad91caaa748834438a78482fb662cc4, type: 2}
+  rangedAttackStateData: {fileID: 11400000, guid: 95c1299ace42cde4b872b3421b879c2d, type: 2}
   meleeAttackPosition: {fileID: 1946374928}
+  rangedAttackPosition: {fileID: 272059508}
 --- !u!4 &2127925143
 Transform:
   m_ObjectHideFlags: 0
