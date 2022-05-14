@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class E3_MoveState : MoveState
+{
+
+    private Enemy3 enemy;
+    public E3_MoveState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData, Enemy3 enemy) : base(etity, stateMachine, animBoolName, stateData)
+    {
+        this.enemy = enemy;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        //if(isDetectingWall || isDetectingLedge)
+        //{
+        //    //add trans to idle
+        //    enemy.idleState.SetFlipAfterIdle(true);
+        //    stateMachine.ChangeState(enemy.idleState);
+        //}
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
+        if (isPlayerInMinAgroRange)
+        {
+            stateMachine.ChangeState(enemy.playerDetectedState);
+        }
+        else if (isDetectingWall || !isDetectingLedge)
+        {
+            //add trans to idle
+            enemy.idleState.SetFlipAfterIdle(true);
+            stateMachine.ChangeState(enemy.idleState);
+        }
+    }
+}

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public float wallHopForce;
     public float wallJumpForce;
 
-    
+  
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
