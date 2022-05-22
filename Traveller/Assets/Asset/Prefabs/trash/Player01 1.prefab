@@ -407,6 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76037bafc28a5b148a4edf4efed4c8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
   deathChunkParticle: {fileID: 6598143204231616485, guid: ac07fe4460cec5c42bff59e7a9c3f518, type: 3}
   deathBloodParticle: {fileID: 190491060640395020, guid: a7d69fbae8b3c2a44bf6bf9dddf3eb4b, type: 3}
